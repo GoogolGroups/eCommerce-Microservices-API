@@ -1,0 +1,3 @@
+### Ticketing E-Commerce Node.js Microservices API
+
+***Disclaimer:** This repository is created from a course on applying the principles of Microservices Architecture to Node.js applications. I don't always agree with some of the architectural patterns in use, especially those of having business logic rely on a Mongoose Model rather than a POTO nor the lack of separation of concerns between BLL/DAL.*
