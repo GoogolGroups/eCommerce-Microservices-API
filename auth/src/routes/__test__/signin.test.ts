@@ -1,8 +1,8 @@
-import supertest from "supertest"
+import request from "supertest"
 import { app } from "../../app"
 
 test('should fail when an email that does not exist is supplied', async () => {
-    return supertest(app)
+    return request(app)
         .post('/api/users/signin')
         .send({
             email: 'test@test.com',
@@ -13,7 +13,7 @@ test('should fail when an email that does not exist is supplied', async () => {
 
 
 test('should fail when an incorrect password is supplied', async () => {
-    await supertest(app)
+    await request(app)
         .post('/api/users/signup')
         .send({
             email: 'test@test.com',
@@ -21,7 +21,7 @@ test('should fail when an incorrect password is supplied', async () => {
         })
         .expect(201);
 
-    return supertest(app)
+    return request(app)
         .post('/api/users/signin')
         .send({
             email: 'test@test.com',
@@ -31,7 +31,7 @@ test('should fail when an incorrect password is supplied', async () => {
 })
 
 test('should respond with a cookie when passed valid credentials', async () => {
-    await supertest(app)
+    await request(app)
         .post('/api/users/signup')
         .send({
             email: 'test@test.com',
@@ -39,7 +39,7 @@ test('should respond with a cookie when passed valid credentials', async () => {
         })
         .expect(201);
 
-    const response = await supertest(app)
+    const response = await request(app)
         .post('/api/users/signin')
         .send({
             email: 'test@test.com',

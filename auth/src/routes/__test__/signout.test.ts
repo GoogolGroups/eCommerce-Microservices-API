@@ -1,13 +1,13 @@
-import supertest from "supertest"
+import request from "supertest"
 import { app } from "../../app"
 
 test('should clear the cookie after signing out', async () => {
-    await supertest(app)
+    await request(app)
         .post('/api/users/signup')
         .send({ email: 'a@b.com', password: 'password' })
         .expect(201);
 
-    const response = await supertest(app)
+    const response = await request(app)
         .post('/api/users/signout')
         .send()
         .expect(200);
