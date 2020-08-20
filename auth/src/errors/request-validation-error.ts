@@ -2,7 +2,7 @@ import { ValidationError } from 'express-validator';
 import { CustomError } from './custom-error';
 
 export class RequestValidationError extends CustomError {
-    statusCode = 500;
+    statusCode = 400;
     
     constructor (
         public readonly errors: ValidationError[]
