@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 
 interface IUserPayload {
+    id: string;
     email: string;
     password: string;
 }
